@@ -1,10 +1,6 @@
 import numpy as np
 import math
-class CatEncoder:
-    def __init__(self):
-         print("CatEncoder")
-
-    def OrdinalCalc(df,col,y):
+def OrdinalCalc(df,col,y):
         # For each categorical value create a numeric relationship to the dependent variable
         distributions = df.groupby(col).sum()[y]/df.groupby([col]).count()[y]
 
@@ -21,8 +17,10 @@ class CatEncoder:
         return replacements
 
 
-def GetOrdinal(df_train,y,df_test = None,cols=df_train.columns):
-
+def GetOrdinal(df_train,y,df_test = None,cols=[]):
+    # If no columns specified get all of the non numeric columns
+    if not cols:
+        cols = df_train.dtypes[df_train.dtypes == object].index
     #Remove the independent variable if it is there
     if y in cols:
         cols = list(cols)
