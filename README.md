@@ -5,7 +5,7 @@ The purpose of this project was to create a module that could encode categorical
 
 To solve this issue, I developed a module that would create an ordinal column which is correlated to the target variable. This way we can hold the variable to one column but the order is no longer arbitrary. 
 
-## File Descrption
+## File Description
 
 DSHelper/CatEncoder.py - Module that contains a function GetOrdinal which takes in a pandas dataframe(s) and an array of target variables as inputs and transforms the dataset(s) by replacing categorical values with approprately ordered numerical values.
 
